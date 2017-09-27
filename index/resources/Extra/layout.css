@@ -1,0 +1,298 @@
+body, html {
+  background: #f9f9f9;
+  height: 100%;
+  line-height: 1.6;
+}
+
+img {
+	width: 100%;
+}
+
+.container {
+  max-width: 1400px;
+}
+
+/* === BEGIN - HERO === */
+
+.hero {
+  position: relative;
+}
+
+.featured {
+  background: #003d6e; /* Old browsers */
+  background: url("../img/gradient-dots-trans.png") repeat-x 0 0, -moz-linear-gradient(left,  #003d6e 100px, #1d6092 300px); /* FF3.6+ */
+  background: url("../img/gradient-dots-trans.png") repeat-x 0 0, -webkit-gradient(linear, left top, right top, color-stop(100px,#003d6e), color-stop(300px,#1d6092)); /* Chrome,Safari4+ */
+  background: url("../img/gradient-dots-trans.png") repeat-x 0 0, -webkit-linear-gradient(top,  #003d6e 100px, #1d6092 300px); /* Chrome10+,Safari5.1+ */
+  background: url("../img/gradient-dots-trans.png") repeat-x 0 0, -o-linear-gradient(top,  #003d6e 100px, #1d6092 300px); /* Opera 11.10+ */
+  background: url("../img/gradient-dots-trans.png") repeat-x 0 0, -ms-linear-gradient(top,  #003d6e 100px, #1d6092 300px); /* IE10+ */
+  background: url("../img/gradient-dots-trans.png") repeat-x 0 0, linear-gradient(#003d6e 100px, #1d6092 300px); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#15447a', endColorstr='#3084c0',GradientType=1 ); /* IE6-9 */
+}
+
+.featured:before {
+  background: transparent url("../img/molecules-right.png") no-repeat 0 0;
+  background-size: 100% auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30%;
+  content: "";
+  height: 100%;
+}
+
+.featured:after {
+  background: transparent url("../img/molecules-left.png") no-repeat left top;
+  background-size: 100% auto;
+  position: absolute;
+  left: 0;
+  top: 200px;
+  width: 40%;
+  content: "";
+  height: 100%;
+}
+
+.page-header {
+  position: relative;
+  z-index: 2;
+  border-bottom: 0;
+  margin: 0;
+  padding: 30px 0 10px 0;
+}
+
+.featured > .page-header {
+  padding-bottom: 30px;
+}
+
+.page-header-message {
+  position: relative;
+  padding-right: 2%;
+}
+
+.page-header-img {
+  display: none;
+}
+
+.page-header-img img {
+  width: 100%;
+  display: block;
+  margin: 0 auto 0 auto;
+}
+
+.featured h1,
+.featured h1 small,
+.featured .meta,
+.featured p,
+.featured .btn-link {
+  color: #fff;
+}
+
+/* === END - HERO === */
+
+
+/* === BEGIN - INTRO === */
+
+.intro  {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.intro .container {
+  margin-bottom: 50px;
+  padding: 30px 5%;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.intro h4 {
+  margin-top: 0;
+}
+
+/* === END - INTRO === */
+
+
+/* === BEGIN - MAIN CONTENT === */
+
+.main-content {
+  position: relative;
+  padding-bottom: 30px;
+}
+
+.featured + .main-content {
+  margin-top: 30px;
+}
+
+.juice, .sidebar, .sidebar-inner {
+  margin-bottom: 2em;
+}
+
+.sidebar-inner {
+  margin-top: 30px;
+}
+
+.juice > *:first-child {
+  margin-top: 0;
+}
+
+/* Consumption Feed Overrides */
+.consumption-feed .featured + .main-content {
+  margin-top: 0;
+}
+
+.consumption-feed .main-content {
+  padding-top: 0;
+}
+
+/* === END - MAIN CONTENT === */
+
+
+.juice > .service-info:first-child {
+  margin-top: 0;
+}
+
+.juice > .service-info:last-child {
+  margin-bottom: 0;
+}
+
+.service-info {
+  margin-bottom: 3em;
+}
+
+.service-info *:first-child {
+  margin-top: 0;
+}
+
+.three-stack {
+  margin-bottom: 3em;
+}
+
+
+/* :::::::::::::::::::::::::::::::::::::::::::::::::::
+	MEDIA QUERIES
+::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+  .container {
+    width: 90%;
+  }
+
+  .category-list-img {
+    float: left;
+    width: 140px;
+  }
+
+  .category-list-img + .category-list-content {
+    padding-left: 160px;
+  }
+
+  .with-links .category-list-content {
+    padding-right: 220px
+  }
+
+  .category-list-links {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 200px;
+    border-left: 1px solid #eee;
+    padding: 10px 0 10px 20px;
+  }
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+  .front .page-header-message {
+    margin-top: 1.5%;
+  }
+
+  .page-header-img {
+    display: block;
+  }
+
+  .featured:before {
+    width: 15%;
+  }
+
+  .featured:after {
+    width: 20%;
+  }
+
+  .three-stack {
+    padding: 0 20px;
+    margin-bottom: 0;
+  }
+
+  .three-stack h2 {
+    margin-top: 0;
+  }
+
+  .sidebar-right .sidebar {
+    padding-left: 30px;
+  }
+
+  .sidebar-left .sidebar {
+    padding-right: 20px;
+  }
+
+  .service-detail .main-content {
+    margin-top: 0;
+  }
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+  .front h1 {
+    font-size: 3em;
+  }
+
+  .featured + .main-content {
+    margin-top: 40px;
+  }
+
+  .service-detail .main-content {
+    margin-top: 0;
+  }
+
+  .page-header {
+    padding-top: 40px;
+  }
+
+  .featured > .page-header {
+    padding-bottom: 40px;
+  }
+
+  .sidebar-right .sidebar {
+    padding-left: 50px;
+  }
+
+  .sidebar-left .sidebar {
+    padding-right: 30px;
+  }
+
+  .sidebar-inner {
+    padding-left: 20px;
+    margin-top: 0;
+  }
+
+}
+
+/* Extra Large devices (large desktops, 1600px and up) */
+@media (min-width: 1600px) {
+
+}

@@ -1,0 +1,19 @@
+@import url(//fonts.googleapis.com/css?family=Lato:400,900);
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+body{
+background: #3284bf url("http://giveto.ucla.edu/wp-content/uploads/2014/04/1440x520_Anderson_funddetail-1440x520-gradient_hero.jpg") repeat-y;
+padding:50px;
+max-width: 1400px;
+}
+
+h1, h2, h3, h4, h5, p, a {
+	color: #333;
+}
+.loginBox{
+	margin: 10px;
+	overflow:auto;
+}
+#newu {
+	color: #333;
+}
