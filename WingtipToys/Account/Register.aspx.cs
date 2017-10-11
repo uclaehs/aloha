@@ -26,15 +26,24 @@ namespace WingtipToys.Account
                 string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
                 manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
 
-                IdentityHelper.SignIn(manager, user, isPersistent: false);
-
-                using (WingtipToys.Logic.ShoppingCartActions usersShoppingCart = new WingtipToys.Logic.ShoppingCartActions())
+                if (user.EmailConfirmed)
                 {
-                  String cartId = usersShoppingCart.GetCartId();
-                  usersShoppingCart.MigrateCart(cartId, user.Id);
-                }
 
-                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                    IdentityHelper.SignIn(manager, user, isPersistent: false);
+
+                    using (WingtipToys.Logic.ShoppingCartActions usersShoppingCart = new WingtipToys.Logic.ShoppingCartActions())
+                    {
+                      String cartId = usersShoppingCart.GetCartId();
+                      usersShoppingCart.MigrateCart(cartId, user.Id);
+                    }
+
+                    IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                }
+                else
+                {
+                    ErrorMessage.Text = "An email has been sent to your account. Please view the email and confirm your account to complete the registration process.";
+                    Response.Redirect("/Account/Login.aspx");
+                }
             }
             else 
             {

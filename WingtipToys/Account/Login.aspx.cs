@@ -24,7 +24,6 @@ namespace WingtipToys.Account
             //    RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
             //}
         }
-
         protected void LogIn(object sender, EventArgs e)
         {
             if (IsValid)
@@ -34,50 +33,73 @@ namespace WingtipToys.Account
                 var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
 
                 var userName = Email.Text;
-                if (userName.Contains("@"))
+                var user = manager.FindByName(userName);
+
+                if (Email.Text.Contains("@"))
                 {
                     using (var context = new ApplicationDbContext())
                     {
-                        var user = context.Users.SingleOrDefault(p => p.Email == userName);
+                        user = context.Users.SingleOrDefault(p => p.Email == Email.Text);
+
+                        //        //if (!user.EmailConfirmed)
+                        //        //{
+                        //        //    FailureText.Text = "Invalid login attempt. You must have a confirmed email account.";
+                        //        //    ErrorMessage.Visible = true;
+                        //        //}
+
                         //FirstOrDefault(p => p.Email == model.UserName);
                         if (user != null)
                         {
                             userName = user.UserName;
                         }
                     }
-
                 }
 
-
-                // This doen't count login failures towards account lockout
-                // To enable password failures to trigger lockout, change to shouldLockout: true
-                var result = signinManager.PasswordSignIn(userName, Password.Text, RememberMe.Checked, shouldLockout: false);
-
-                switch (result)
+                if (user == null)
                 {
-                    case SignInStatus.Success:
-                        WingtipToys.Logic.ShoppingCartActions usersShoppingCart = new WingtipToys.Logic.ShoppingCartActions();
-                        String cartId = usersShoppingCart.GetCartId();
-                        usersShoppingCart.MigrateCart(cartId, Email.Text);
-
-                        IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-                        break;
-                    case SignInStatus.LockedOut:
-                        Response.Redirect("/Account/Lockout");
-                        break;
-                    case SignInStatus.RequiresVerification:
-                        Response.Redirect(String.Format("/Account/TwoFactorAuthenticationSignIn?ReturnUrl={0}&RememberMe={1}", 
-                                                        Request.QueryString["ReturnUrl"],
-                                                        RememberMe.Checked),
-                                          true);
-                        break;
-                    case SignInStatus.Failure:
-                    default:
-                        FailureText.Text = "Invalid login attempt";
-                        ErrorMessage.Visible = true;
-                        break;
+                    FailureText.Text = "Invalid login attempt: User can not be found!";
+                    ErrorMessage.Visible = true;
                 }
-            }
-        }
+                else if (!user.EmailConfirmed)
+                {
+                    FailureText.Text = "Invalid login attempt. You must have a confirmed email account.";
+                    ErrorMessage.Visible = true;
+                }
+                else
+                {
+                    //// This doen't count login failures towards account lockout
+                    //// To enable password failures to trigger lockout, change to shouldLockout: true
+                    var result = signinManager.PasswordSignIn(userName, Password.Text, RememberMe.Checked, shouldLockout: false);
+
+                    switch (result)
+                    {
+                        case SignInStatus.Success:
+                            WingtipToys.Logic.ShoppingCartActions usersShoppingCart = new WingtipToys.Logic.ShoppingCartActions();
+                            String cartId = usersShoppingCart.GetCartId();
+                            usersShoppingCart.MigrateCart(cartId, Email.Text);
+
+                            IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                            break;
+                        case SignInStatus.LockedOut:
+                            Response.Redirect("/Account/Lockout");
+                            break;
+                        case SignInStatus.RequiresVerification:
+                            Response.Redirect(String.Format("/Account/TwoFactorAuthenticationSignIn?ReturnUrl={0}&RememberMe={1}",
+                                                            Request.QueryString["ReturnUrl"],
+                                                            RememberMe.Checked),
+                                              true);
+                            break;
+                        case SignInStatus.Failure:
+                        default:
+                            FailureText.Text = "Invalid login attempt";
+                            ErrorMessage.Visible = true;
+                            break;
+                    } // End of switch (result)
+
+                } // End of Else
+
+            }  // End of if (IsValid)
+        }  // End of protected void LogIn(object sender, EventArgs e)
+
     }
 }
