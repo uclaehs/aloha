@@ -31,7 +31,7 @@ namespace WingtipToys
         private async Task configSendGridasync(IdentityMessage message)
         {
 
-            var apiKey = "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";  //-- - NOTE: you need to get an API Key to use when you create your SendGrid Account -
+            var apiKey = "";  //-- - NOTE: you need to get an API Key to use when you create your SendGrid Account -
 
             var client = new SendGridClient(apiKey);
 
