@@ -40,14 +40,6 @@ namespace WingtipToys.Account
                     using (var context = new ApplicationDbContext())
                     {
                         user = context.Users.SingleOrDefault(p => p.Email == Email.Text);
-
-                        //        //if (!user.EmailConfirmed)
-                        //        //{
-                        //        //    FailureText.Text = "Invalid login attempt. You must have a confirmed email account.";
-                        //        //    ErrorMessage.Visible = true;
-                        //        //}
-
-                        //FirstOrDefault(p => p.Email == model.UserName);
                         if (user != null)
                         {
                             userName = user.UserName;
@@ -76,7 +68,7 @@ namespace WingtipToys.Account
                         case SignInStatus.Success:
                             WingtipToys.Logic.ShoppingCartActions usersShoppingCart = new WingtipToys.Logic.ShoppingCartActions();
                             String cartId = usersShoppingCart.GetCartId();
-                            usersShoppingCart.MigrateCart(cartId, Email.Text);
+                            usersShoppingCart.MigrateCart(cartId, userName);
 
                             IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                             break;
@@ -101,5 +93,5 @@ namespace WingtipToys.Account
             }  // End of if (IsValid)
         }  // End of protected void LogIn(object sender, EventArgs e)
 
-    }
-}
+    } // End of public partial class Login : Page
+} // End of namespace WingtipToys.Account

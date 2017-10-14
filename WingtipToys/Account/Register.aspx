@@ -22,8 +22,8 @@
             <asp:Label runat="server" AssociatedControlID="UID" CssClass="col-md-2 control-label">University ID</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="UID" CssClass="form-control" TextMode="SingleLine" />
-                <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="UID"
-                    CssClass="text-danger" ErrorMessage="The University ID field is required." />--%>
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="UID"
+                    CssClass="text-danger" ErrorMessage="The University ID field is required." />
                 <BR />
             </div>
         </div>

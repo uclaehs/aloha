@@ -31,7 +31,7 @@ namespace WingtipToys
         private async Task configSendGridasync(IdentityMessage message)
         {
 
-            var apiKey = "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";  //-- - NOTE: you need to get an API Key to use when you create your SendGrid Account -
+            var apiKey = "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";  //-- - NOTE: you need to get an API Key to use when you create your SendGrid Account -
 
             var client = new SendGridClient(apiKey);
 
@@ -39,7 +39,7 @@ namespace WingtipToys
 
             {
 
-                From = new EmailAddress("test@example.com", "Your Website"),
+                From = new EmailAddress("ehs@example.com", "UCLA EH&S Hub"),
 
                 Subject = message.Subject,
 
