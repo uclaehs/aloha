@@ -275,3 +275,13 @@ Exception Type: System.Exception
 Exception: The error was unhandled by application code.
 Source: customErrors section - Web.config
 Stack Trace: 
+********** 10/18/2017 3:55:25 PM **********
+Exception Type: System.Exception
+Exception: The error was unhandled by application code.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 10/20/2017 5:37:40 PM **********
+Exception Type: System.Exception
+Exception: The error was unhandled by application code.
+Source: customErrors section - Web.config
+Stack Trace: 

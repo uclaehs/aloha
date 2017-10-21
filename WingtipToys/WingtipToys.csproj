@@ -20,6 +20,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -273,13 +274,14 @@
     <Content Include="Global.asax" />
     <Content Include="ShoppingCart.aspx" />
     <Content Include="Site.Master" />
-    <Content Include="TrainingSearch.aspx" />
+    <Content Include="Training\TrainingSearch.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
+    <Content Include="Training\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -479,6 +481,7 @@
     </Compile>
     <Compile Include="Logic\AddProducts.cs" />
     <Compile Include="Logic\ExceptionUtility.cs" />
+    <Compile Include="Logic\ImportUserDetails.cs" />
     <Compile Include="Logic\PayPalFunctions.cs" />
     <Compile Include="Logic\RoleActions.cs" />
     <Compile Include="Logic\ShoppingCartActions.cs" />
@@ -486,6 +489,10 @@
     <Compile Include="Migrations\201709202252347_InitialCreate.cs" />
     <Compile Include="Migrations\201709202252347_InitialCreate.Designer.cs">
       <DependentUpon>201709202252347_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710182220483_AddAspNetUsersField.cs" />
+    <Compile Include="Migrations\201710182220483_AddAspNetUsersField.Designer.cs">
+      <DependentUpon>201710182220483_AddAspNetUsersField.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CartItem.cs" />
@@ -533,11 +540,11 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="TrainingSearch.aspx.cs">
+    <Compile Include="Training\TrainingSearch.aspx.cs">
       <DependentUpon>TrainingSearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="TrainingSearch.aspx.designer.cs">
+    <Compile Include="Training\TrainingSearch.aspx.designer.cs">
       <DependentUpon>TrainingSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
@@ -554,6 +561,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201709202252347_InitialCreate.resx">
       <DependentUpon>201709202252347_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710182220483_AddAspNetUsersField.resx">
+      <DependentUpon>201710182220483_AddAspNetUsersField.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

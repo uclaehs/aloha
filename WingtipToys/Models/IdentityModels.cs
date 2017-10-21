@@ -13,15 +13,22 @@ namespace WingtipToys.Models
     // You can add User data for the user by adding more properties to your User class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
-        //public virtual UserProfile userProfileInfo { get; set; }
+        // To create new Database Table Begin
+            //public virtual UserProfile userProfileInfo { get; set; }
 
-        //public class UserProfile
-        //{
-        //    public int Id { get; set; }
-        //    public string FirstName { get; set; }
-        //    public string LastName { get; set; }
-        //    public string UniversityID { get; set; }
-        //}
+            //public class UserProfile
+            //{
+            //    public int Id { get; set; }
+            //    public string FirstName { get; set; }
+            //    public string LastName { get; set; }
+            //    public string UniversityID { get; set; }
+            //}
+        // To create new Database Table End
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string UniversityID { get; set; }
+        public string ManagerID { get; set; }
 
         public ClaimsIdentity GenerateUserIdentity(ApplicationUserManager manager)
         {
