@@ -90,4 +90,107 @@ input[type="select"] {
     display: block;
 }
 
+/* GRIDS Style Begin
+----------------------------------------------------------*/
+.grid {
+    width: 100%;
+    padding: 0; /*border: 1px solid #a6c9e2;*/
+    border: 0;
+    border-spacing: 0px;
+    border-bottom: 1px solid #a6c9e2;
+}
+
+    /* grid Header */
+    .grid > tbody > tr > th, .grid > tr > th {
+        /* background-color: #dfeffc; */
+        /* color: #2e6e9e; */
+        background-color: #3399cc;
+        color: #FFFFFF;
+        font-size: 14px;
+        font-weight: bold;
+        height: 34px;
+        padding-left: 5pt;
+        padding-right: 5pt;
+    }
+
+        /* Sortable grid headers */
+        .grid > tbody > tr > th.sortable:hover, .grid > tr > th.sortable:hover {
+            border-left: 1px solid #aaa;
+            border-right: 1px solid #aaa;
+            border-top: 1px solid #aaa;
+            background-color: #ccc;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .grid > tbody > tr > th + th.sortable:hover, .grid > tr > th + th.sortable:hover {
+            border-left: 0;
+        }
+
+        .grid > tbody > tr > th.sortable:active, .grid > tr > th.sortable:active {
+            border-left: 1px solid #888;
+            border-right: 1px solid #888;
+            border-top: 1px solid #888;
+            background-color: #aaa;
+            color: #000;
+        }
+
+        .grid > tbody > tr > th + th.sortable:active, .grid > tr > th + th.sortable:active {
+            border-left: 0;
+        }
+
+
+    /* grid Body */
+    .grid > tbody > tr > td, .grid > tr > td {
+        color: #222222;
+        /* background-color: #fcfdfd; */
+        font-size: 16px;
+        height: 34px;
+        padding-left: 5pt;
+        padding-right: 5pt;
+    }
+
+    /* highlighting of hovered row */
+    .grid > tbody > tr:hover > td, .grid > tr:hover > td {
+        background-color: #dadbdb;
+    }
+
+    .grid > tbody > tr:active > td, .grid > tr:active > td {
+        background-color: #b8b9b9;
+    }
+
+    /* grid Footer */
+    .grid .gridFooter > tbody > tr > td, .grid .gridFooter > tr > td {
+        background-color: #fbec88;
+        color: #363636;
+        height: 34px;
+        border-color: #fad42e;
+    }
+
+    /* draws the border around grid cells */
+    .grid > tbody > tr > th, .grid > tr > th, .grid > tbody > tr > td, .grid > tr > td {
+        border: 0;
+        border-left: 1px solid #a6c9e2;
+        border-right: 1px solid #a6c9e2;
+        border-top: 1px solid #a6c9e2;
+    }
+
+        .grid > tbody > tr > th + th, .grid > tr > th + th, .grid > tbody > tr > td + td, .grid > tr > td + td {
+            border-left: 0;
+        }
+
+    /* grid form fields */
+    .grid input[type="text"] {
+        width: 80pt;
+    }
+
+    /* edited grid */
+    .grid .gridEdit, .grid .gridEdit > tr, .grid .gridEdit > td, .grid .gridEdit > tr > td {
+        color: #363636;
+        background-color: #fbec88;
+        border-color: #fad42e;
+    }
+/* GRIDS Style End
+----------------------------------------------------------*/
+
 /* Ken's style end */

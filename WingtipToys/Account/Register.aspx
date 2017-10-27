@@ -25,6 +25,7 @@
                 <asp:TextBox runat="server" ID="UID" CssClass="form-control" TextMode="SingleLine" />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="UID"
                     CssClass="text-danger" ErrorMessage="The University ID field is required." />
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="UID" runat="server" ErrorMessage="University ID ONLY allow numbers." ValidationExpression="\d+"></asp:RegularExpressionValidator>
                 <BR />
             </div>
         </div>
@@ -51,7 +52,7 @@
                 <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-default" />
                  <h5>After click on [Register] button, go to your email account, click on the confirmation links we send you to verify your email account.</h5>
                  <h5>Note: you <font color="red"> would not be able to login </font> until you have <font color="red"> clicked on the confirmation links </font> we email you.</h5>
-                <p><asp:Label ID="result_msg" Text="Get it" runat="server"></asp:Label><br>
+                <p><asp:Label ID="result_msg" Text="" runat="server"></asp:Label><br>
             </div>
         </div>
     </div>

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WingtipToys {
+namespace WingtipToys.Training {
     
     
     public partial class TrainingSearch {

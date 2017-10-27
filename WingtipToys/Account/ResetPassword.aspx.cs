@@ -24,20 +24,26 @@ namespace WingtipToys.Account
             {
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
-                var user = manager.FindByName(Email.Text);
-                if (user == null)
+                //var user = manager.FindByName(Email.Text);
+
+                using (var context = new ApplicationDbContext())
                 {
-                    ErrorMessage.Text = "No user found";
+                    var user = context.Users.SingleOrDefault(p => p.Email == Email.Text);
+
+                    if (user == null)
+                    {
+                        ErrorMessage.Text = "No user found";
+                        return;
+                    }
+                    var result = manager.ResetPassword(user.Id, code, Password.Text);
+                    if (result.Succeeded)
+                    {
+                        Response.Redirect("~/Account/ResetPasswordConfirmation");
+                        return;
+                    }
+                    ErrorMessage.Text = result.Errors.FirstOrDefault();
                     return;
                 }
-                var result = manager.ResetPassword(user.Id, code, Password.Text);
-                if (result.Succeeded)
-                {
-                    Response.Redirect("~/Account/ResetPasswordConfirmation");
-                    return;
-                }
-                ErrorMessage.Text = result.Errors.FirstOrDefault();
-                return;
             }
 
             ErrorMessage.Text = "An error has occurred";

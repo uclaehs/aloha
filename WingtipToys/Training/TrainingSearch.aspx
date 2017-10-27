@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Training Search" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TrainingSearch.aspx.cs" Inherits="WingtipToys.TrainingSearch" MaintainScrollPositionOnPostback="true" %>
+﻿<%@ Page Title="Training Search" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TrainingSearch.aspx.cs" Inherits="WingtipToys.Training.TrainingSearch" MaintainScrollPositionOnPostback="true" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
   <h2><%: Title %>.</h2>
@@ -7,7 +7,7 @@
 <asp:Panel id="pnlContents" runat = "server">
 <asp:UpdatePanel ID="UpdatePanel" runat="server">
 <ContentTemplate>
-<p><asp:Label ID="result_msg" Text="Get it" runat="server"></asp:Label><br>
+<p><asp:Label ID="result_msg" Text="" runat="server"></asp:Label><br>
             <table border="0">
             <tr><td><asp:TextBox ID="idUID" runat="server" Text="Enter University ID here, seperate each ID with comma." style="width:900px" onfocus="clearField(this);" onblur="refillField(this,'Enter University ID here, seperate each ID with comma.');"></asp:TextBox>
                 <%--<br><asp:LinkButton ID="btn_create_newAssessment_save" OnClientClick="return checkOperationalAssessment()" runat="server" Text="Save" CssClass="addButton" />--%>

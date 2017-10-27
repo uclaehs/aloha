@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using WingtipToys.Logic;
 
-namespace WingtipToys
+namespace WingtipToys.Training
 {
     public partial class TrainingSearch : System.Web.UI.Page
     {
@@ -36,7 +36,7 @@ namespace WingtipToys
         private void LoadWorkSafeTrainDoneData(string ids)
         {
             //DAL dal = new DAL();
-            Training ts = new Training();
+            TrainingRecord ts = new TrainingRecord();
             DataSet ds = new DataSet();
             string sError = "";
             bool result1 = false;
@@ -45,7 +45,7 @@ namespace WingtipToys
 
             try
             {
-                result1 = ts.getLabPersonnelTraining(ids, ref ds, ref sError);
+                result1 = ts.  getLabPersonnelTraining(ids, ref ds, ref sError);
 
                 if (result1 == true & string.IsNullOrEmpty(sError))
                 {

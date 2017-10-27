@@ -163,6 +163,7 @@
     <Content Include="Account\ManageLogins.aspx" />
     <Content Include="Account\ManagePassword.aspx" />
     <Content Include="Account\OpenAuthProviders.ascx" />
+    <Content Include="Account\Profile.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="Account\ResetPassword.aspx" />
@@ -274,6 +275,7 @@
     <Content Include="Global.asax" />
     <Content Include="ShoppingCart.aspx" />
     <Content Include="Site.Master" />
+    <Content Include="Training\MyTraining.aspx" />
     <Content Include="Training\TrainingSearch.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -352,6 +354,13 @@
     </Compile>
     <Compile Include="Account\OpenAuthProviders.ascx.designer.cs">
       <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
@@ -485,7 +494,7 @@
     <Compile Include="Logic\PayPalFunctions.cs" />
     <Compile Include="Logic\RoleActions.cs" />
     <Compile Include="Logic\ShoppingCartActions.cs" />
-    <Compile Include="Logic\TrainingSearch.cs" />
+    <Compile Include="Logic\TrainingRecord.cs" />
     <Compile Include="Migrations\201709202252347_InitialCreate.cs" />
     <Compile Include="Migrations\201709202252347_InitialCreate.Designer.cs">
       <DependentUpon>201709202252347_InitialCreate.cs</DependentUpon>
@@ -493,6 +502,10 @@
     <Compile Include="Migrations\201710182220483_AddAspNetUsersField.cs" />
     <Compile Include="Migrations\201710182220483_AddAspNetUsersField.Designer.cs">
       <DependentUpon>201710182220483_AddAspNetUsersField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710252246528_initial.cs" />
+    <Compile Include="Migrations\201710252246528_initial.Designer.cs">
+      <DependentUpon>201710252246528_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CartItem.cs" />
@@ -540,6 +553,13 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="Training\MyTraining.aspx.cs">
+      <DependentUpon>MyTraining.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Training\MyTraining.aspx.designer.cs">
+      <DependentUpon>MyTraining.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Training\TrainingSearch.aspx.cs">
       <DependentUpon>TrainingSearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -564,6 +584,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710182220483_AddAspNetUsersField.resx">
       <DependentUpon>201710182220483_AddAspNetUsersField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710252246528_initial.resx">
+      <DependentUpon>201710252246528_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

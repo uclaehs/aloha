@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace WingtipToys.Logic
 {
-    public class Training
+    public class TrainingRecord
     {
         public bool getLabPersonnelTraining(string pkeys, ref DataSet ds, ref string sERROR)
         {

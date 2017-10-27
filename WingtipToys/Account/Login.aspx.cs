@@ -15,14 +15,14 @@ namespace WingtipToys.Account
         {
             RegisterHyperLink.NavigateUrl = "Register";
             // Enable this once you have account confirmation enabled for password reset functionality
-            //ForgotPasswordHyperLink.NavigateUrl = "Forgot";
+            ForgotPasswordHyperLink.NavigateUrl = "Forgot";
 
             //OpenAuthLogin.ReturnUrl = Request.QueryString["ReturnUrl"];
-            //var returnUrl = HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
-            //if (!String.IsNullOrEmpty(returnUrl))
-            //{
-            //    RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
-            //}
+            var returnUrl = HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
+            if (!String.IsNullOrEmpty(returnUrl))
+            {
+                RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
+            }
         }
         protected void LogIn(object sender, EventArgs e)
         {
@@ -56,6 +56,7 @@ namespace WingtipToys.Account
                 {
                     FailureText.Text = "Invalid login attempt. You must have a confirmed email account.";
                     ErrorMessage.Visible = true;
+                    ResendConfirm.Visible = true;
                 }
                 else
                 {
@@ -92,6 +93,31 @@ namespace WingtipToys.Account
 
             }  // End of if (IsValid)
         }  // End of protected void LogIn(object sender, EventArgs e)
+
+        protected void SendEmailConfirmationToken(object sender, EventArgs e)
+        {
+            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            //var user = manager.FindByName(Email.Text);
+
+            using (var context = new ApplicationDbContext())
+            {
+                var user = context.Users.SingleOrDefault(p => p.Email == Email.Text);
+
+                if (user != null)
+                {
+                    if (!user.EmailConfirmed)
+                    {
+                        string code = manager.GenerateEmailConfirmationToken(user.Id);
+                        string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
+                        manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
+
+                        FailureText.Text = "Confirmation email sent. Please view the email and confirm your account.";
+                        ErrorMessage.Visible = true;
+                        ResendConfirm.Visible = false;
+                    }
+                }
+            }
+        }
 
     } // End of public partial class Login : Page
 } // End of namespace WingtipToys.Account
