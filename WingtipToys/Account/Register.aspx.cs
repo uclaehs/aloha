@@ -46,7 +46,8 @@ namespace WingtipToys.Account
             }
             else
             {
-                ErrorMessage.Text = result.Errors.FirstOrDefault();
+                var ermsg = result.Errors.FirstOrDefault().Replace("Name", "University ID:");
+                ErrorMessage.Text = ermsg; //result.Errors.FirstOrDefault();
             }
         }
 
@@ -107,5 +108,5 @@ namespace WingtipToys.Account
             iud = null;
         }
 
-    }
-}
+    } // End of public partial class Register : Page
+} // End of namespace WingtipToys.Account

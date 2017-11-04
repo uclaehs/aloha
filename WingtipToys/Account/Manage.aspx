@@ -22,11 +22,6 @@
                         <asp:HyperLink NavigateUrl="/Account/Profile" Text="[Review / Update]" Visible="true" ID="HyperLink1" runat="server" />
                     </dd> <hr />
 
-                    <dt>Training:</dt>
-                    <dd>
-                        <asp:HyperLink NavigateUrl="/Training/MyTraining" Text="[View training records]" Visible="true" ID="HyperLink2" runat="server" />
-                    </dd> <hr />
-
                     <dt>Password:</dt>
                     <dd>
                         <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="[Change]" Visible="false" ID="ChangePassword" runat="server" />

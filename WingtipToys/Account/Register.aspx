@@ -2,13 +2,10 @@
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <h2><%: Title %>.</h2>
-    <p class="text-danger">
-        <asp:Literal runat="server" ID="ErrorMessage" />
-    </p>
-
+  
     <div class="form-horizontal">
-        <h4> - For linking your training records, please enter your <font color="red"> correct 9 digits University ID. </font></h4>
-        <h4> - Make sure to enter you <font color="red"> correct email address,</font> so you can receive the email confirmation link after you click on the [Register] button.</h4>
+        <h4> - For linking your training records from WorkSafe Database, please enter your <asp:label runat="server" class="progress" text="correct 9 digits University ID."/> </h4> 
+        <h4> - Make sure to enter your <asp:label runat="server" class="progress" text="correct email address"/>, so you can receive the email confirmation link after you click on the [Register] button.</h4>
         <hr />
         <asp:ValidationSummary runat="server" CssClass="text-danger" />
         <div class="form-group">
@@ -49,11 +46,12 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
+                <p class="text-danger"><asp:Literal runat="server" ID="ErrorMessage" /></p>
                 <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-default" />
                  <h5>After click on [Register] button, go to your email account, click on the confirmation links we send you to verify your email account.</h5>
-                 <h5>Note: you <font color="red"> would not be able to login </font> until you have <font color="red"> clicked on the confirmation links </font> we email you.</h5>
+                 <h5>Note: you would <asp:label runat="server" class="alert-warning" text="not be able to login"/> until you have <asp:label runat="server" class="alert-warning" text="clicked on the confirmation links"/> from us.</h5>
                 <p><asp:Label ID="result_msg" Text="" runat="server"></asp:Label><br>
             </div>
         </div>
-    </div>
+</div>
 </asp:Content>

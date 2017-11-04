@@ -11,6 +11,8 @@ using WingtipToys.Models;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using WingtipToys.Logic;
+using System.Diagnostics;
+using System.Web.ModelBinding;
 
 namespace WingtipToys.Account
 {
@@ -46,19 +48,38 @@ namespace WingtipToys.Account
             //return db.ApplicationUser.FirstOrDefault(t => t.Id == Context.User.Identity.GetUserId()); ;
         }
 
-        // The studentID parameter name should match the DataKeyNames value set on the control
         public void userProfileGrid_UpdateItem()
         {
-
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
             var currentUser = manager.FindById(Context.User.Identity.GetUserId());
-            
+
             TryUpdateModel(currentUser);
             if (ModelState.IsValid)
             {
-                manager.Update(currentUser);
+                var result = manager.Update(currentUser);
+                if (result.Succeeded)
+                {
+                    MatchUIDByUserName(Context.User.Identity.GetUserId());
+                    result_msg.Text = "Update successfully.";
+                    result_msg.CssClass = "success";
+                }
+                else {
+                    var ermsg = result.Errors.FirstOrDefault().Replace("Name", "University ID:");
+                    result_msg.Text = "Update failed, " + ermsg;
+                    result_msg.CssClass = "error";
+                }
+                result_msg.Style.Add("display", "block");
             }
         }
+
+        private void MatchUIDByUserName(string uid)
+        {
+            string sError = "";
+            ImportUserDetails iud = new ImportUserDetails();
+
+            iud.UpdateUserUIDByUserName(uid, ref sError);
+        }
+
 
     } // End of public partial class Profile : System.Web.UI.Page
 } // End of namespace WingtipToys.Accoun

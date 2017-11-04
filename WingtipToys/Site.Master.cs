@@ -9,6 +9,8 @@ using System.Web.UI.WebControls;
 using System.Linq;
 using WingtipToys.Models;
 using WingtipToys.Logic;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace WingtipToys
 {
@@ -75,6 +77,16 @@ namespace WingtipToys
           {
             adminLink.Visible = true;
           }
+            // by Ken Chou, 11/01/2017
+            if (HttpContext.Current.User.Identity.IsAuthenticated == true)
+            {
+                var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+                var currentUser = manager.FindById(Context.User.Identity.GetUserId());
+
+                Label lbl = default(Label);
+                lbl = (Label)myLoginView.FindControl("myEmailLabel");
+                lbl.Text = currentUser.Email.ToString();
+            }
         }
 
         protected void Page_PreRender(object sender, EventArgs e)
@@ -82,7 +94,7 @@ namespace WingtipToys
           using (ShoppingCartActions usersShoppingCart = new ShoppingCartActions())
           {
             string cartStr = string.Format("Cart ({0})", usersShoppingCart.GetCount());
-            cartCount.InnerText = cartStr;
+            //cartCount.InnerText = cartStr;
           }
         }
 

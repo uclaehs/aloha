@@ -111,5 +111,40 @@ namespace WingtipToys.Logic
                 return false;
             }
         }
+
+        public bool UpdateUserUIDByUserName(string id, ref string sERROR)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                SqlDataAdapter da = new SqlDataAdapter();
+
+                SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+
+                con.Open();
+                cmd.Connection = con;
+
+                cmd.CommandText = " update AspNetUsers set UniversityID = UserName where Id =  @id; ";
+
+                cmd.Parameters.AddWithValue("@id", id);
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                da.Dispose();
+                cmd.Dispose();
+                da = null;
+                cmd = null;
+                con = null;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                sERROR = ex.Message;
+                return false;
+            }
+        }
+
+
     } // End of public class ImportUserDetails
 } // End of namespace WingtipToys.Logic

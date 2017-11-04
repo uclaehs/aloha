@@ -275,6 +275,7 @@
     <Content Include="Global.asax" />
     <Content Include="ShoppingCart.aspx" />
     <Content Include="Site.Master" />
+    <Content Include="Training\MyStaffsTraining.aspx" />
     <Content Include="Training\MyTraining.aspx" />
     <Content Include="Training\TrainingSearch.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -553,6 +554,13 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="Training\MyStaffsTraining.aspx.cs">
+      <DependentUpon>MyStaffsTraining.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Training\MyStaffsTraining.aspx.designer.cs">
+      <DependentUpon>MyStaffsTraining.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Training\MyTraining.aspx.cs">
       <DependentUpon>MyTraining.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

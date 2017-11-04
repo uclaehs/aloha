@@ -1,6 +1,5 @@
-﻿<%@ Page Title="My Training Record" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MyTraining.aspx.cs" Inherits="WingtipToys.Training.MyTraining" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MyStaffsTraining.aspx.cs" Inherits="WingtipToys.Training.MyStaffsTraining" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
 <h2><%: Title %></h2>
 
 <asp:Label ID="result_msg" Text="" runat="server"></asp:Label>
