@@ -28,7 +28,7 @@
                         <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="[Create]" Visible="false" ID="CreatePassword" runat="server" />
                     </dd>
 
-                   <%-- <dt>External Logins:</dt>
+                   <%-- <dt>External Logins: Update 11/07/2017  </dt>
                     <dd><%: LoginsCount %>
                         <asp:HyperLink NavigateUrl="/Account/ManageLogins" Text="[Manage]" runat="server" />
 
